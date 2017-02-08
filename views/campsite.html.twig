@@ -1,0 +1,27 @@
+<html>
+<head>
+    <title>Our Favorite Campsites</title>
+</head>
+<body>
+    <h1>Our Favorite Campsites</h1>
+
+    {% if campsites is not empty %}
+        <p>Here are all your campsites:</p>
+        <ul>
+            {% for campsite in campsites %}
+                <li>{{ campsites.getTitle }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form action='/campsite' method='post'>
+       <label for='title'>Create your campsite post:</label>
+       <input id='title' name='title' type='text'>
+
+       <button type='submit'>Add</button>
+   </form>
+   <form action='/delete_campsite' method='post'>
+       <button type='submit'>Clear</button>
+   </form>
+</body>
+</html>
